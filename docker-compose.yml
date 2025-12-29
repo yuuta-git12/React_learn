@@ -10,5 +10,6 @@ services:
       - /usr/src/app/node_modules
     environment:
       - CHOKIDAR_USEPOLLING=true
+      # コンテナ内で実行するコマンド → コンテナ内で実行するコマンドを指定する
     command: npm run dev -- --host 0.0.0.0 --port 5173
 
