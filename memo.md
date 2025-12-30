@@ -95,6 +95,17 @@ node --version
 
 # npm
 - Node.jsのツールやパッケージをインストール・管理するためのツール
+- プロジェクトの実行方法
+  - 作成したReactプロジェクトの実行
+```
+npm start
+```
+- 作成したプロジェクトのビルド
+  - 実際にWebサーバーにアップロードできる形にする
+```
+npm run build
+```
+- distフォルダに保存されたファイルをすべてWebサーバーにアップロードして、index.htmlにアクセスすることで<br>プロジェクトで作成したアプリが動く
 
 # React開発に必要なもののインストール
 ## パッケージの初期化方法
@@ -117,3 +128,29 @@ npm install --save-dev webpack webpack-cli
 npm install --save-dev webpack-dev-server
 npm install --save-dev html-webpack-plugin
 ```
+- TypeScriptを使用する場合はこちら
+```
+npm install --save-dev @babel/core @babel/preset-env
+npm install --save-dev @babel/preset-react babel-loader
+npm install --save-dev @babel/preset-typescript
+npm install --save-dev webpack webpack-cli
+npm install --save-dev webpack-dev-server
+npm install --save-dev html-webpack-plugin
+```
+
+### Babel
+- ReactのコードをJavaScriptのコードに変換する
+- 専用の設定情報ファイル「.babelrc」というファイルを作成する必要がある
+
+### Webpack
+- プロジェクトからWebアプリケーションのファイルを生成するのに必要
+- 「webpack.config.js」という設定情報ファイルが必要
+
+## TypeScriptのインストール
+- ReactでTypeScriptを使用する場合、以下のコマンド実行でTypeScriptとReact関係のTypeScript用型定義のパッケージがインストールできる
+```
+npm install --save-dev typescript @types/react @types/react-dom
+```
+
+### TypeScript用設定ファイルのさkすえい
+- 「tsconfig.json」という名前のファイルをプロジェクトフォルダー内に作成する
