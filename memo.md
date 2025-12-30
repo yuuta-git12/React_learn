@@ -4,6 +4,11 @@
 2) npm install
 3) docker-compose up --build → http://localhost:5173 で確認。
 
+# コンテナ内への入り方
+- 以下のコマンド実行でNode.jsのコンテナに入る
+```
+docker compose exec -it web sh  
+```
 
 # npm
 - JavaScriptのパッケージ管理ツール
@@ -76,3 +81,39 @@ import React from ファイルのパス
 
 # windowオブジェクト
 - Webブラウザ版javascriptのグローバルオブジェクト
+
+# Node.js
+- JavaScriptエンジンと呼ばれるプログラム
+- JavaScriptのコードをWebブラウザ上でなくても実行できる
+## バージョンについて
+- 偶数バージョン：長期間、安定したサポートを受けれられるバージョン
+- 奇数バージョン：短期間のサポートだが、新しい機能などを盛り込んだバージョン
+- バージョンの確認方法
+```
+node --version
+```
+
+# npm
+- Node.jsのツールやパッケージをインストール・管理するためのツール
+
+# React開発に必要なもののインストール
+## パッケージの初期化方法
+- 以下のコマンドをプロジェクト内のフォルダで実行することで、プロジェクト用のパッケージ設定情報が作成できる
+- 設定ファイル「package.json」が作成される
+```
+npm init -y //-yオプション：初期化時に聞かれる質問をデフォルトで自動設定する
+```
+## 最新版のReactとReact DOMのインストール
+```
+npm install react@latest react-dom@latest
+```
+## Babel・Webpackのインストール
+- 「Babel」・「Webpack」というパッケージのインストール
+- 全部で8つのパッケージをインストール
+```
+npm install --save-dev @babel/core @babel/preset-env
+npm install --save-dev @babel/preset-react babel-loader
+npm install --save-dev webpack webpack-cli
+npm install --save-dev webpack-dev-server
+npm install --save-dev html-webpack-plugin
+```
