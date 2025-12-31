@@ -119,3 +119,40 @@ npm cache clean --force
 ```
 npm install react@next react-dom@next
 ```
+# React プロジェクトの中身
+## フォルダ関係
+- 「node_modules」フォルダ：npmで管理されるモジュール類がまとめてある
+- 「public」フォルダ：公開フォルダ。HTML、CSSなど公開されるフォルダ類が保存されている
+- 「src」フォルダ：Reactで作成したファイルがまとめられている
+## ファイル類
+- .gitignore：Gitの設定ファイル（コミットしたくないファイル、フォルダの設定を行う）
+- package.json：npmでパッケージ管理するための設定ファイル
+- package-lock.json：npmに関する設定を記述したファイル
+- tsconfig.json：TypeScriptの設定ファイル
+
+## package.jsonの構造
+```
+{
+  "name": "プロジェクト名",
+  "private": 非公開か否か(true：非公開),
+  "version": "プロジェクトのバージョン",
+  "scripts": { コマンドの定義　},
+  "dependencies": {　本番環境での依存パッケージ　},
+  "devDependencies": {開発環境での依存パッケージ},
+  "eslintConfig":{eslintの設定},
+  browserlist:{ブラウザのリスト}
+}
+```
+- 依存パッケージ：「あるパッケージを動かすのに必要なパッケージ」
+  - TypeScript関係のパッケージの前には「@types」と書かれている
+- 「dependencies」の内容の書き換え
+  - 「dependencies」の内容を書き換えることで、パッケージのバージョンを変更することが可能
+  - 書き換え後は`npm install`を実行しパッケージの再インストールが必要
+- 「scripts」でのコマンド定義
+  - `npm run`で実行するコマンドを定義する場所
+    - 例) `npm run 定義したコマンド`で「scripts」内に定義したコマンドを実行できる
+### package.jsonの違い
+- package.jsonはReactプロジェクトの作成方法によって、内容が異なる
+  - webpack
+  - Create Reacte App：依存パッケージの記述に「devDependencies」がない
+  - Vite
