@@ -54,3 +54,10 @@ npm install --save-dev typescript @types/react @types/react-dom
 
 ### TypeScript用設定ファイルのさkすえい
 - 「tsconfig.json」という名前のファイルをプロジェクトフォルダー内に作成する
+
+#　package.jsonの設定
+- `npm start`
+  - `webpack serve --mode development`：Webpackに用意されている開発サーバーを起動し、アプリケーションを実行
+## Webpack
+- プロジェクト内で使用されているパッケージなどの依存関係を解析し、最適な順序で結合して１つのスクリプトファイルにまとめる
+- Babelによるコードのトランスコンパイルも同時実行する

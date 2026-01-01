@@ -5,11 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Simplr React19 App NO JSX by SDN</title>
+    <title>Simple React19 App NO JSX by SDN</title>
+    <script type="module">
+        import React from "https://esm.sh/react@19.2.0"
+        import ReactDOMClient from "https://esm.sh/react-dom@19.2.0/client"
+        window.React = React;
+        window.ReactDOMClient = ReactDOMClient;
+    </script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 </head>
 <body>
     <h1>React</h1>
-    <div id="root">wait...</div>
-    <script src="main.js"></script>
+    <div id="root"></div>
+    <!-- スクリプトタグにtype="text/babel"を指定することで、JSXを使用できる -->
+    <script type="text/babel">
+        const root = document.getElementById('root');
+        const rootElement = ReactDOMClient.createRoot(root);
+
+        // 表示するJSX
+        const elements = (
+            <div className="container">
+                <h1>React & JSX</h1>
+                <p>this isReact & JSX sample application.</p>
+            </div>
+        );
+
+        rootElement.render(elements);
+    </script>
 </body>
 </html>
