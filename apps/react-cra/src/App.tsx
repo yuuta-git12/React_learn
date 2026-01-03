@@ -4,6 +4,8 @@ import './App.css';
 
 const title = "React page.";
 const message = "メッセージを表示します";
+const content_true = `*これが、trueの時に表示されるメッセージです。ちゃんと表示されていますか？`;
+const content_false = `*これは、falseの時に表示されるメッセージです。`;
 
 function Msg(msg:string, size:number, color:string){
   const s = {
@@ -27,6 +29,22 @@ function Msg2(props: Msg2Props){
   }
   return <p className='msg' style={s}>{props.msg}</p>
 }
+
+const flg = false; // 表示フラグ
+// リストデータ
+const list_data = [
+  <li className='msg'>One</li>,
+  <li className='msg'>Two</li>,
+  <li className='msg'>Three</li>,
+];
+// mapで利用するデータ
+const map_data = [
+  {name:'Taro',mail:'taro@tomioka',age:30},
+  {name:'Kei',mail:'kei@toumine',age:30},
+  {name:'Toshiya',mail:'toshiya@tomioka',age:28},
+  {name:'Jiro',mail:'jiro@change',age:18},
+  {name:'Kumi',mail:'kumi@class',age:60},
+];
 
 function App() {
   return (
@@ -58,6 +76,41 @@ function App() {
       <Msg2 msg={"最初のメッセージ2"} size={20} color={"blue"} />
       <Msg2 msg={"次のメッセージ2"} size={20} color={"green"} />
       <Msg2 msg={"最後のメッセージ2"} size={20} color={"orange"} />
+
+      {flg ?
+        <div className='msg'>
+          <p>{content_true}</p>
+        </div>
+        :
+        <div className='msg'>
+          <p>{content_false}</p>
+        </div>
+      }
+
+      {/* リスト表示 */}
+      <ul>
+        {list_data}
+      </ul>
+
+      {/* mapデータのテーブル表示 */}
+      <table className='data-table'>
+        <thead>
+          <tr>
+            <th>name</th>
+            <th>mail</th>
+            <th>age</th>
+          </tr>
+        </thead>
+        <tbody>
+          {map_data.map(value =>(
+            <tr>
+              <td>{value.name}</td>
+              <td>{value.mail}</td>
+              <td>{value.age}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }

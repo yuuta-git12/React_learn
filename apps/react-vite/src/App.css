@@ -74,3 +74,21 @@ p {
   border: lightgrey 1px solid;
   padding: 5px 10px;
 }
+
+/* table用のスタイル */
+table.data-table {
+  font-size: 0.9em;
+  text-align: center;
+}
+table.data-table thead{
+  color:white;
+  background-color: cadetblue;
+}
+table.data-table thead tr th {
+  padding: 3px 10px;
+}
+table.data-table tbody tr td {
+  border: lightblue 1px solid;
+  padding: 2px 15px;
+  color: black;
+}
