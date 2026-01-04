@@ -30,6 +30,29 @@ function Msg2(props: Msg2Props){
   return <p className='msg' style={s}>{props.msg}</p>
 }
 
+// Msg3：タグで囲われたコンテンツを表示する
+function Msg3(props:{children: string}){
+  console.log(props.children);
+  return (
+    <div className='msg'>
+      {props.children}
+    </div>
+  );
+}
+
+function Msg4(props:{children:Array<any>}){
+  return (
+    <ol className='msg'>
+      {props.children.map((child: any) => {
+        return <li style={{margin:"10px 50px"}}>
+          {/* childで渡された属性のコンテンツの値を取り出している */}
+          {child.props.children}
+        </li>;
+      })}
+    </ol>
+  )
+}
+
 // Dataコンポーネントのインターフェース
 // data属性の中に３つのオブジェクトを用意
 interface DataInterface {
@@ -112,6 +135,19 @@ function App() {
       <Msg2 msg={"最初のメッセージ2"} size={20} color={"blue"} />
       <Msg2 msg={"次のメッセージ2"} size={20} color={"green"} />
       <Msg2 msg={"最後のメッセージ2"} size={20} color={"orange"} />
+
+      {/* Msg3 タグで囲われたコンテンツを表示する場合*/}
+      <Msg3>
+        ＊これは、メッセージです。
+        複数行のメッセージを表示します。
+      </Msg3>
+
+      {/* Msg4 複数のタグ付きのコンテンツを表示する場合 */}
+      <Msg4>
+        <p>＊これは、メッセージです。</p>
+        <p>複数行のメッセージを表示します</p>
+        <p>番号をつけて順に表示されます。</p>
+      </Msg4>
 
       {flg ?
         <div className='msg'>
