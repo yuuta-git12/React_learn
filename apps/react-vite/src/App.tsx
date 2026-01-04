@@ -29,6 +29,24 @@ function Msg2(props: Msg2Props){
   return <p className='msg' style={s}>{props.msg}</p>
 }
 
+// Dataコンポーネントのインターフェース
+// data属性の中に３つのオブジェクトを用意
+interface DataInterface {
+  data:{
+    name:string,
+    mail:string,
+    age:number
+  }
+}
+// Dataコンポーネントの定義
+function Data(props:DataInterface){
+  return (
+    <p className='msg'>
+      {props.data.name}({props.data.age}) &lt;{props.data.mail}&gt;
+    </p>
+  );
+}
+
 const flg = true; // 表示フラグ
 // リスト
 const list_data = [
@@ -45,6 +63,24 @@ const map_data = [
   {name:'Jiro',mail:'jiro@change',age:18},
   {name:'Kumi',mail:'kumi@class',age:60},
 ];
+
+// アロー関数で使用するデータ
+const arrow_data = {
+  url:'http://google.com',
+  title:'Google',
+  caption:`*これは、Googleの検索サイトです。このサイトは、Googleが提供しています`,
+}
+
+// データ取得の関数定義(コンポーネントではないので注意)
+function getData(n:number){
+  const flg = n%2 == 0;
+  return (
+    <p className='msg'
+      style={flg ? {backgroundColor:'gray', color:'white'}: {}}>
+      [{n+1}] {map_data[n].name}({map_data[n].age}) &lt;{map_data[n].mail}&gt;
+    </p>
+  );
+}
 
 function App() {
   return (
@@ -105,8 +141,8 @@ function App() {
           </tr>
         </thead>
         <tbody>
-          {map_data.map(value => (
-            <tr>
+          {map_data.map((value, index) => (
+            <tr key={index}>
               <td>{value.name}</td>
               <td>{value.mail}</td>
               <td>{value.age}</td>
@@ -115,7 +151,35 @@ function App() {
         </tbody>
       </table>
 
+      {/* mapを使ってgetData関数を呼び出し */}
+      {/* 未使用のパラメータを示すため_を記載 */}
+      <div>
+        {map_data.map((_, index) => (
+          <div key={index}>
+            {getData(index)}
+          </div>
+        ))}
+      </div>
 
+      {/* Dataコンポーネントでの表示 */}
+      <Data data={{name:'Taro', mail:'taro@yamada', age:45}} />
+      <Data data={{name:'Hanako', mail:'hanako@flower', age:36}} />
+      <Data data={{name:'Sachiko', mail:'sachiko@happy', age:27}} />
+
+      {/* アロー関数での表示 */}
+      {(()=>
+        <div className='card'>
+          <div className="header">
+            {arrow_data.title}
+          </div>
+          <div className='body'>
+            {arrow_data.caption}
+          </div>
+          <div className='footer'>
+            <a href={arrow_data.url}>*{arrow_data.title}に移動</a>
+          </div>
+        </div>
+      )()}
 
     </div>
   );

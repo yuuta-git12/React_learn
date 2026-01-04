@@ -30,6 +30,24 @@ function Msg2(props: Msg2Props){
   return <p className='msg' style={s}>{props.msg}</p>
 }
 
+// Dataコンポーネントのインターフェース
+// data属性の中に３つのオブジェクトを用意
+interface DataInterface {
+  data:{
+    name:string,
+    mail:string,
+    age:number
+  }
+}
+// Dataコンポーネントの定義
+function Data(props:DataInterface){
+  return (
+    <p className='msg'>
+      {props.data.name}({props.data.age}) &lt;{props.data.mail}&gt;
+    </p>
+  );
+}
+
 const flg = false; // 表示フラグ
 // リストデータ
 const list_data = [
@@ -45,6 +63,24 @@ const map_data = [
   {name:'Jiro',mail:'jiro@change',age:18},
   {name:'Kumi',mail:'kumi@class',age:60},
 ];
+
+// アロー関数で使用するデータ
+const arrow_data = {
+  url:'http://google.com',
+  title:'Google',
+  caption:`*これは、Googleの検索サイトです。このサイトは、Googleが提供しています`,
+}
+
+// データ取得の関数定義(コンポーネントではないので注意)
+function getData(n:number){
+  const flg = n%2 == 0;
+  return (
+    <p className='msg'
+      style={flg ? {backgroundColor:'gray', color:'white'}: {}}>
+      [{n+1}] {map_data[n].name}({map_data[n].age}) &lt;{map_data[n].mail}&gt;
+    </p>
+  );
+}
 
 function App() {
   return (
@@ -111,6 +147,32 @@ function App() {
           ))}
         </tbody>
       </table>
+
+      {getData(0)}
+      {getData(1)}
+      {getData(2)}
+      {getData(3)}
+      {getData(4)}
+
+      {/* Dataコンポーネントでの表示 */}
+      <Data data={{name:'Taro', mail:'taro@yamada', age:45}} />
+      <Data data={{name:'Hanako', mail:'hanako@flower', age:36}} />
+      <Data data={{name:'Sachiko', mail:'sachiko@happy', age:27}} />
+
+      {/* アロー関数での表示 */}
+      {(()=>
+        <div className='card'>
+          <div className="header">
+            {arrow_data.title}
+          </div>
+          <div className='body'>
+            {arrow_data.caption}
+          </div>
+          <div className='footer'>
+            <a href={arrow_data.url}>*{arrow_data.title}に移動</a>
+          </div>
+        </div>
+      )()}
     </div>
   );
 }
