@@ -106,7 +106,8 @@ function getData(n:number){
   );
 }
 
-function App() {
+// ?を付けることで、属性が任意（あってもなくてもOK)であることを示す
+function App(props: {counter?: number}) {
   return (
     <div className='container'>
       {/* コンポーネント内のスタイル設定 */}
@@ -216,6 +217,10 @@ function App() {
       <Ellipse width={125} height={125} x={100} y={300} color="#f006" />
       <Ellipse width={150} height={150} x={150} y={350} color="#f006" />
       <Ellipse width={175} height={175} x={200} y={400} color="#f006" />
+
+      <h5 className='msg'>
+        count:{props.counter || 0}.
+      </h5>
 
     </div>
   );

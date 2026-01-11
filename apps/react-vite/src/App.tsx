@@ -1,11 +1,15 @@
+// スタイルシートのimport
 import './App.css'
+// Ellipseコンポーネントのimport（別ファイルで定義）
 import Ellipse from './Ellipse';
 
+// 表示用の定数定義
 const title = "React page.";
 const message = "メッセージを表示します";
 const content_true = `*これが、trueの時に表示されるメッセージです。ちゃんと表示されていますか？`;
 const content_false = `*これは、falseの時に表示されるメッセージです。`;
 
+// Msg関数：引数で直接値を受け取ってメッセージを表示する（コンポーネントではない）
 function Msg(msg:string, size:number, color:string){
   const s = {
     fontSize: size + "pt",
@@ -22,6 +26,7 @@ interface Msg2Props {
   color: string
 }
 
+// Msg2コンポーネント：propsで値を受け取ってメッセージを表示する
 function Msg2(props: Msg2Props){
   const s = {
     fontSize: props.size + "pt",
@@ -43,6 +48,7 @@ function Msg3(props:{children: string}){
   );
 }
 
+// Msg4コンポーネント：複数のタグ付きコンテンツを番号付きリストで表示する
 function Msg4(props:{children:Array<any>}){
   return (
     <ol className='msg'>
@@ -109,7 +115,8 @@ function getData(n:number){
   );
 }
 
-function App() {
+// ?を付けることで、属性が任意（あってもなくてもOK)であることを示す
+function App(props: {counter?: number}) {
   return (
     <div className='container'>
       {/* コンポーネント内のスタイル設定 */}
@@ -128,6 +135,10 @@ function App() {
           background-color: lightyellow;
         }
         li.msg {
+          background-color: lightyellow;
+          color: black;
+        }
+        h5.msg {
           background-color: lightyellow;
           color: black;
         }
@@ -157,7 +168,8 @@ function App() {
         <p>番号をつけて順に表示されます。</p>
       </Msg4>
 
-      {flg ? 
+      {/* 三項演算子による条件分岐での表示切り替え */}
+      {flg ?
         <div className='msg'>
           <p>{content_true}</p>
         </div>
@@ -226,6 +238,11 @@ function App() {
       <Ellipse width={125} height={125} x={100} y={2050} color="#f006" />
       <Ellipse width={150} height={150} x={150} y={2100} color="#f006" />
       <Ellipse width={175} height={175} x={200} y={2150} color="#f006" />
+
+      {/* props.counterの値を表示（未指定の場合は0） */}
+      <h5 className='msg'>
+        count:{props.counter || 0}.
+      </h5>
 
     </div>
   );
