@@ -1,4 +1,5 @@
 import './App.css'
+import Ellipse from './Ellipse';
 
 const title = "React page.";
 const message = "メッセージを表示します";
@@ -219,6 +220,12 @@ function App() {
           </div>
         </div>
       )()}
+
+      {/* Ellupseコンポーネントでの楕円形の描画 */}
+      <Ellipse width={100} height={100} x={50} y={2000} color="#f006" />
+      <Ellipse width={125} height={125} x={100} y={2050} color="#f006" />
+      <Ellipse width={150} height={150} x={150} y={2100} color="#f006" />
+      <Ellipse width={175} height={175} x={200} y={2150} color="#f006" />
 
     </div>
   );
