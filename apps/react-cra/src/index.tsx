@@ -1,19 +1,62 @@
+// =============================================================================
+// React アプリケーションのエントリーポイント
+// =============================================================================
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import './index.css';              // グローバルCSSスタイルのインポート
+import App from './App';           // メインのAppコンポーネント
+import reportWebVitals from './reportWebVitals';  // パフォーマンス計測のための関数
 
+// -----------------------------------------------------------------------------
+// カウンター状態の管理
+// -----------------------------------------------------------------------------
+// 注意: 通常はuseStateフックを使用するが、ここでは手動での再レンダリングを学習するため
+//       グローバル変数として定義している
+var counter = 0;
+
+// -----------------------------------------------------------------------------
+// クリックイベントハンドラ
+// -----------------------------------------------------------------------------
+// カウンターをインクリメントし、画面を再レンダリングする
+const doAction = () =>{
+  counter++;  // カウンターを1増加
+  render();   // 手動で再レンダリングを実行
+}
+
+// -----------------------------------------------------------------------------
+// Reactルートの作成
+// -----------------------------------------------------------------------------
+// ReactDOM.createRoot: React 18で導入された新しいルートAPI
+// index.html内の<div id="root">要素をReactのマウントポイントとして使用
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+// -----------------------------------------------------------------------------
+// レンダリング関数
+// -----------------------------------------------------------------------------
+// Appコンポーネントをルート要素にレンダリングする
+// - React.StrictMode: 開発時に潜在的な問題を検出するためのラッパー
+// - counter: 現在のカウンター値をpropsとしてAppに渡す
+// - onClick: クリック時のコールバック関数をpropsとしてAppに渡す
+function render(){
+  root.render(
+    <React.StrictMode>
+      <App counter={counter} onClick={doAction}/>
+    </React.StrictMode>
+  )
+}
+
+// -----------------------------------------------------------------------------
+// 初回レンダリングの実行
+// -----------------------------------------------------------------------------
+render();
+
+// -----------------------------------------------------------------------------
+// パフォーマンス計測（オプション）
+// -----------------------------------------------------------------------------
+// アプリのパフォーマンスを計測したい場合は、関数を渡してログ出力できる
+// 例: reportWebVitals(console.log)
+// 詳細: https://bit.ly/CRA-vitals
 reportWebVitals();

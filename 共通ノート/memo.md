@@ -154,5 +154,5 @@ npm install react@next react-dom@next
 ### package.jsonの違い
 - package.jsonはReactプロジェクトの作成方法によって、内容が異なる
   - webpack
-  - Create Reacte App：依存パッケージの記述に「devDependencies」がない
+  - Create React App：依存パッケージの記述に「devDependencies」がない
   - Vite
