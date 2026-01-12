@@ -109,3 +109,14 @@ table.data-table tbody tr td {
   font-size: 0.8em;
   margin: 20px 0px;
 }
+
+button {
+  border: gray 1px solid;
+  border-radius: 0.25em;
+  color: white;
+  background-color: blue;
+  padding: 10px 25px;
+  margin: 10px 0px;
+  font-size: 0.9em;
+  cursor: pointer;
+}

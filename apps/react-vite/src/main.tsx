@@ -5,6 +5,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App.tsx'          // メインのAppコンポーネント
+import App_hook_state from './App_hook_state.tsx'
 import './index.css'                 // グローバルCSSスタイルのインポート
 
 // -----------------------------------------------------------------------------
@@ -52,6 +53,7 @@ function render(){
   root.render(
     <StrictMode>
       <App counter={counter} onClick={doAction}/>
+      <App_hook_state />
     </StrictMode>,
   )
 }

@@ -69,3 +69,10 @@ npm run build       # 本番ビルド
 
 ## CLAUDEルール
 - ユーザーに選択、判断を求める場合はAskUserQuestionツールを使うこと
+- gitのcommitメッセージは以下の形式にすること
+  - [commitする内容を含むブランチ名]-[種別]：コメント
+    - 種別のルール
+      - 更新：update
+      - 追加：add
+      - バグ修正：bugfix
+      - 警備修正：fix
