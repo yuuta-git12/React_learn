@@ -116,7 +116,7 @@ function getData(n:number){
 }
 
 // ?を付けることで、属性が任意（あってもなくてもOK)であることを示す
-function App(props: {counter?: number}) {
+function App(props: {counter?: number,onClick?: () => void}) {
   return (
     <div className='container'>
       {/* コンポーネント内のスタイル設定 */}
@@ -240,7 +240,7 @@ function App(props: {counter?: number}) {
       <Ellipse width={175} height={175} x={200} y={2150} color="#f006" />
 
       {/* props.counterの値を表示（未指定の場合は0） */}
-      <h5 className='msg'>
+      <h5 className='msg' onClick={props.onClick}>
         count:{props.counter || 0}.
       </h5>
 

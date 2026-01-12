@@ -66,3 +66,6 @@ npm run build       # 本番ビルド
 
 - react-vite と react-cra は TypeScript、react-webpack は JavaScript
 - 共通ノート（`共通ノート/`）にReact学習メモあり
+
+## CLAUDEルール
+- ユーザーに選択、判断を求める場合はAskUserQuestionツールを使うこと
