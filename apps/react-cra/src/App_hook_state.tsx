@@ -22,6 +22,9 @@ function App_hook_state(){
     // - setCount: count を更新するための関数
     const [message] = useState("Welcome to Hooks!");
     const [count, setCount] = useState(0);
+    // - flag: 表示スタイルを切り替えるためのboolean型ステート
+    // - setFlag: flag を更新するための関数
+    const [flag, setFlag] = useState(false);
 
     // -------------------------------------------------------------------------
     // クリックイベントハンドラ
@@ -30,6 +33,15 @@ function App_hook_state(){
     // setCount を呼ぶと React が自動的に再レンダリングを行う
     const clickFunc = () => {
         setCount(count + 1);
+    }
+
+    // -------------------------------------------------------------------------
+    // チェックボックス変更イベントハンドラ
+    // -------------------------------------------------------------------------
+    // チェックボックスの状態変更時に flag を更新する
+    // e.target.checked でチェックボックスの現在の状態（true/false）を取得
+    const changeFlag = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setFlag(e.target.checked);
     }
 
     // -------------------------------------------------------------------------
@@ -45,7 +57,15 @@ function App_hook_state(){
                     <p>{message}.</p>
                 </div>
                 <h4>Hooks sample</h4>
-                <div>
+                {/* ---------------------------------------------------------
+                    条件付きレンダリング（三項演算子）
+                    ---------------------------------------------------------
+                    flag の値によって異なるJSXを表示する
+                    - flag が true の場合: true_msg スタイルのブロックを表示
+                    - flag が false の場合: false_msg スタイルのブロックを表示
+                */}
+                {flag ?
+                <div className='true_msg'>
                     {/* count ステートの値を表示 */}
                     <p>click:{count} times!</p>
                     <div>
@@ -54,6 +74,24 @@ function App_hook_state(){
                             Click me
                         </button>
                     </div>
+                </div>
+                :
+                <div className='false_msg'>
+                    <p>click: {count} times!</p>
+                    <div>
+                        <button className='false_button' onClick={clickFunc}>
+                            Click me
+                        </button>
+                    </div>
+                </div>
+                }
+                {/* チェックボックスで表示スタイルを切り替える */}
+                <div>
+                    {/* onChange イベントで changeFlag が呼ばれ、flag が更新される */}
+                    <input type="checkbox" id="check1" onChange={changeFlag}/>
+                    <label htmlFor="check1">
+                        Change form style.
+                    </label>
                 </div>
             </div>
         </div>

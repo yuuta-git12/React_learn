@@ -3,7 +3,9 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
+  /* color-scheme: ダーク/ライトモードの自動切り替えを無効化 */
+  /* 元の値 "light dark" から "normal" に変更 */
+  color-scheme: normal;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
 
@@ -32,6 +34,8 @@ h1 {
   line-height: 1.1;
 }
 
+/* デフォルトのボタンスタイルをコメントアウト */
+/* App.css で定義したカスタムボタンスタイルを優先するため無効化 */
 /* button {
   border-radius: 8px;
   border: 1px solid transparent;
