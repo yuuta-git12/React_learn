@@ -172,3 +172,19 @@ button {
 label {
   color: darkblue;
 }
+
+/* アラートメッセージのスタイル */
+/* 青背景に白文字、黄緑の二重線ボーダーで目立つ表示 */
+.alert{
+  color: white;
+  background-color: royalblue;
+  border: yellowgreen 6px double;
+  padding: 25px 50px;
+  margin: 25px 0px;
+  border-radius: 0.5em;
+}
+
+/* カード内のテキストを黒色に設定 */
+.card {
+  color: black;
+}
