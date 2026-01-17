@@ -8,6 +8,7 @@ import App from './App.tsx'          // メインのAppコンポーネント
 import App_hook_state from './App_hook_state.tsx'  // フック・ステート用のApp_hook_stateコンポーネント
 import './index.css'                 // グローバルCSSスタイルのインポート
 import App_child from './App_child.tsx'            // 子コンポーネントサンプル用のApp_childコンポーネント
+import App_bidirectionl from './App_bidirectional.tsx'  // 双方向データバインディングサンプル用コンポーネント
 
 // -----------------------------------------------------------------------------
 // ルート要素の取得と検証
@@ -56,6 +57,7 @@ function render(){
       <App counter={counter} onClick={doAction}/>
       <App_hook_state />
       <App_child />  {/* 子コンポーネントサンプル */}
+      <App_bidirectionl />
     </StrictMode>,
   )
 }

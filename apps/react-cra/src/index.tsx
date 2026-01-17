@@ -9,6 +9,7 @@ import App from './App';           // メインのAppコンポーネント
 import App_hook_state from './App_hook_state';  // フック・ステート用のApp_hook_stateコンポーネント
 import App_child from './App_child';            // 子コンポーネントサンプル用のApp_childコンポーネント
 import reportWebVitals from './reportWebVitals';  // パフォーマンス計測のための関数
+import App_bidirectionl from './App_bidirectional';  // 双方向データバインディングサンプル用コンポーネント
 
 // -----------------------------------------------------------------------------
 // カウンター状態の管理
@@ -48,6 +49,7 @@ function render(){
       <App counter={counter} onClick={doAction}/>
       <App_hook_state />
       <App_child />  {/* 子コンポーネントサンプル */}
+      <App_bidirectionl />
     </React.StrictMode>
   )
 }
