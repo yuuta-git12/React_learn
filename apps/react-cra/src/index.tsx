@@ -10,6 +10,7 @@ import App_hook_state from './App_hook_state';  // フック・ステート用�
 import App_child from './App_child';            // 子コンポーネントサンプル用のApp_childコンポーネント
 import reportWebVitals from './reportWebVitals';  // パフォーマンス計測のための関数
 import App_bidirectionl from './App_bidirectional';  // 双方向データバインディングサンプル用コンポーネント
+import App_form from './App_form'                    // フォーム入力サンプル用コンポーネント
 
 // -----------------------------------------------------------------------------
 // カウンター状態の管理
@@ -50,6 +51,7 @@ function render(){
       <App_hook_state />
       <App_child />  {/* 子コンポーネントサンプル */}
       <App_bidirectionl />
+      <App_form />  {/* フォーム入力サンプル */}
     </React.StrictMode>
   )
 }
