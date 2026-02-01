@@ -65,6 +65,11 @@ h2{
   color: gray;
 }
 
+/* h4 見出しのスタイル（サブセクション用） */
+h4{
+  color: gray;
+}
+
 p {
   font-size: 0.9em;
   color: black;
@@ -118,4 +123,80 @@ table.data-table tbody tr td {
   font-size: 0.8em;
   margin: 20px 0px;
   color: black;
+}
+
+/* =============================================================================
+   ステート切り替えサンプル用スタイル
+   ============================================================================= */
+
+/* ボタンの共通スタイル */
+button {
+  border: gray 1px solid;
+  border-radius: 0.25em;
+  color: black;
+  background-color: blue;
+  padding: 10px 25px;
+  margin: 10px 0px;
+  font-size: 0.9em;
+  cursor: pointer;
+}
+
+/* flag が true の時に適用されるメッセージブロックのスタイル */
+/* 白背景に赤文字で表示 */
+.true_msg {
+  color: red;
+  background-color: white;
+  border: gray 1px solid;
+  padding: 5px 20px;
+  margin: 10px 0px;
+}
+
+/* flag が false の時に適用されるメッセージブロックのスタイル */
+/* cadetblue背景に黒文字で表示 */
+.false_msg {
+  color: black;
+  background-color: cadetblue;
+  border: cadetblue 1px solid;
+  padding: 5px 20px;
+  margin: 10px 0px;
+}
+
+/* flag が false の時のボタンスタイル */
+/* デフォルトボタンと区別するため色を変更 */
+.false_button {
+  background-color: lightcyan;
+  color: darkblue;
+}
+
+/* チェックボックスのラベルスタイル */
+label {
+  color: darkblue;
+}
+
+/* アラートメッセージのスタイル */
+/* 青背景に白文字、黄緑の二重線ボーダーで目立つ表示 */
+.alert{
+  color: white;
+  background-color: royalblue;
+  border: yellowgreen 6px double;
+  padding: 25px 50px;
+  margin: 25px 0px;
+  border-radius: 0.5em;
+}
+
+/* カード内のテキストを黒色に設定 */
+.card {
+  color: black;
+}
+
+/* フォーム入力フィールドのスタイル */
+/* テキスト入力欄の見た目を統一し、視認性を確保 */
+input {
+  border: gray 1px solid;
+  border-radius: 0.25em;
+  color: black;
+  background-color: white;
+  padding: 7px 10px;
+  margin: 3px 0px;
+  font-size: 0.9em;
 }

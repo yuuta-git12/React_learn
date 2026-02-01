@@ -4,8 +4,13 @@
 
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import App from './App.tsx'          // メインのAppコンポーネント
+import App from './App'          // メインのAppコンポーネント
+import App_hook_state from './App_hook_state'  // フック・ステート用のApp_hook_stateコンポーネント
 import './index.css'                 // グローバルCSSスタイルのインポート
+import App_child from './App_child'            // 子コンポーネントサンプル用のApp_childコンポーネント
+import App_bidirectionl from './App_bidirectional'  // 双方向データバインディングサンプル用コンポーネント
+import App_form from './App_form'                    // フォーム入力サンプル用コンポーネント
+import App_useEffect from './App_useEffect'          // useEffectサンプル用のApp_useEffectコンポーネント
 
 // -----------------------------------------------------------------------------
 // ルート要素の取得と検証
@@ -52,6 +57,11 @@ function render(){
   root.render(
     <StrictMode>
       <App counter={counter} onClick={doAction}/>
+      <App_hook_state />
+      <App_child />  {/* 子コンポーネントサンプル */}
+      <App_bidirectionl />
+      <App_form />  {/* フォーム入力サンプル */}
+      <App_useEffect />  {/* useEffectサンプル */}
     </StrictMode>,
   )
 }
