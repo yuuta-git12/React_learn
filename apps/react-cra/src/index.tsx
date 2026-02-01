@@ -11,6 +11,7 @@ import App_child from './App_child';            // 子コンポーネントサ�
 import reportWebVitals from './reportWebVitals';  // パフォーマンス計測のための関数
 import App_bidirectionl from './App_bidirectional';  // 双方向データバインディングサンプル用コンポーネント
 import App_form from './App_form'                    // フォーム入力サンプル用コンポーネント
+import App_useEffect from './App_useEffect';
 
 // -----------------------------------------------------------------------------
 // カウンター状態の管理
@@ -52,6 +53,7 @@ function render(){
       <App_child />  {/* 子コンポーネントサンプル */}
       <App_bidirectionl />
       <App_form />  {/* フォーム入力サンプル */}
+      <App_useEffect />
     </React.StrictMode>
   )
 }

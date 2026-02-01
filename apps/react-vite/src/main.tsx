@@ -10,6 +10,7 @@ import './index.css'                 // グローバルCSSスタイルのイン�
 import App_child from './App_child'            // 子コンポーネントサンプル用のApp_childコンポーネント
 import App_bidirectionl from './App_bidirectional'  // 双方向データバインディングサンプル用コンポーネント
 import App_form from './App_form'                    // フォーム入力サンプル用コンポーネント
+import App_useEffect from './App_useEffect'          // useEffectサンプル用のApp_useEffectコンポーネント
 
 // -----------------------------------------------------------------------------
 // ルート要素の取得と検証
@@ -60,6 +61,7 @@ function render(){
       <App_child />  {/* 子コンポーネントサンプル */}
       <App_bidirectionl />
       <App_form />  {/* フォーム入力サンプル */}
+      <App_useEffect />  {/* useEffectサンプル */}
     </StrictMode>,
   )
 }
