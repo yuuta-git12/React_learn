@@ -16,12 +16,22 @@ function useCounter():[number, ()=>void] {
     // カウント値を管理する状態変数（初期値: 0）
     const [num, setNum] = useState(0);
 
+    // デバッグ用: レンダリング時の状態値を確認
+    console.log('1. レンダリング中:', num);
+
     // カウントを1増やす関数
     const count = () => {
+        // デバッグ用: 関数実行時のnumの値を確認（クロージャでキャプチャされた値）
+        console.log('カウントアップ関数実行: num =', num);
         setNum(num + 1);
+        // デバッグ用: setStateは非同期のため、この時点ではnumはまだ古い値のまま
+        // 新しい値は次のレンダリング時に反映される
+        console.log('setNum後のnum（※まだ更新されていない）:', num);
     }
 
     // 現在値とカウントアップ関数を配列で返す
+    // デバッグ用: return直前の状態値を確認
+    console.log('2. レンダリング終了直前:', num);
     return [num, count];
 }
 
