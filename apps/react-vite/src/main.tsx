@@ -11,7 +11,8 @@ import App_child from './App_child'            // 子コンポーネントサン
 import App_bidirectionl from './App_bidirectional'  // 双方向データバインディングサンプル用コンポーネント
 import App_form from './App_form'                    // フォーム入力サンプル用コンポーネント
 import App_useEffect from './App_useEffect'          // useEffectサンプル用のApp_useEffectコンポーネント
-import App_useCounter from './App_useCounter';
+import App_useCounter from './App_useCounter';  // useCounterカスタムフックサンプル用コンポーネント
+import Calcmenu from './components/Calcmenu'    // 計算メニューコンポーネント（useCalcカスタムフック使用）
 
 // -----------------------------------------------------------------------------
 // ルート要素の取得と検証
@@ -63,7 +64,8 @@ function render(){
       <App_bidirectionl />
       <App_form />  {/* フォーム入力サンプル */}
       <App_useEffect />  {/* useEffectサンプル */}
-      <App_useCounter />
+      <App_useCounter />  {/* useCounterカスタムフックサンプル */}
+      <Calcmenu />  {/* 計算メニュー（useCalcカスタムフック使用） */}
     </StrictMode>,
   )
 }
