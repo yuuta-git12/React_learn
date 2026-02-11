@@ -13,6 +13,7 @@ import App_form from './App_form'                    // フォーム入力サン
 import App_useEffect from './App_useEffect'          // useEffectサンプル用のApp_useEffectコンポーネント
 import App_useCounter from './App_useCounter';  // useCounterカスタムフックサンプル用コンポーネント
 import Calcmenu from './components/Calcmenu'    // 計算メニューコンポーネント（useCalcカスタムフック使用）
+import App_usePersist from './App _usePersist'  // UsePersist（LocalStorage永続化）サンプル用コンポーネント
 
 // -----------------------------------------------------------------------------
 // ルート要素の取得と検証
@@ -66,6 +67,7 @@ function render(){
       <App_useEffect />  {/* useEffectサンプル */}
       <App_useCounter />  {/* useCounterカスタムフックサンプル */}
       <Calcmenu />  {/* 計算メニュー（useCalcカスタムフック使用） */}
+      <App_usePersist />  {/* UsePersist（LocalStorage永続化）サンプル */}
     </StrictMode>,
   )
 }
