@@ -200,3 +200,29 @@ input {
   margin: 3px 0px;
   font-size: 0.9em;
 }
+
+input[type=submit] {
+  border: lightblue 1px solid;
+  background-color: darkblue;
+  color: white;
+  padding: 5px 20px;
+  margin: 5px 10px;
+}
+select {
+  font-size: 0.8em;
+  padding: 7px;
+}
+
+/* =============================================================================
+   メモアプリ用テーブルスタイル
+   ============================================================================= */
+
+/* メモ一覧テーブルのフォントサイズ */
+table.memo {
+  font-size: 0.9em;
+}
+
+/* メモ一覧の各行に下線を表示 */
+table.memo tr td {
+  border-bottom: gray 1px solid;
+}

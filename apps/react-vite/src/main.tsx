@@ -4,6 +4,7 @@
 
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import App from './App'          // メインのAppコンポーネント
 import App_hook_state from './App_hook_state'  // フック・ステート用のApp_hook_stateコンポーネント
 import './index.css'                 // グローバルCSSスタイルのインポート
@@ -11,6 +12,10 @@ import App_child from './App_child'            // 子コンポーネントサン
 import App_bidirectionl from './App_bidirectional'  // 双方向データバインディングサンプル用コンポーネント
 import App_form from './App_form'                    // フォーム入力サンプル用コンポーネント
 import App_useEffect from './App_useEffect'          // useEffectサンプル用のApp_useEffectコンポーネント
+import App_useCounter from './App_useCounter';  // useCounterカスタムフックサンプル用コンポーネント
+import Calcmenu from './components/Calcmenu'    // 計算メニューコンポーネント（useCalcカスタムフック使用）
+import App_usePersist from './App _usePersist'  // UsePersist（LocalStorage永続化）サンプル用コンポーネント
+import MainMemo from './main_memo'              // メモアプリページ
 
 // -----------------------------------------------------------------------------
 // ルート要素の取得と検証
@@ -47,21 +52,47 @@ const doAction = () =>{
 }
 
 // -----------------------------------------------------------------------------
-// レンダリング関数
+// ホームページコンポーネント
 // -----------------------------------------------------------------------------
-// Appコンポーネントをルート要素にレンダリングする
-// - StrictMode: 開発時に潜在的な問題を検出するためのラッパー
-// - counter: 現在のカウンター値をpropsとしてAppに渡す
-// - onClick: クリック時のコールバック関数をpropsとしてAppに渡す
-function render(){
-  root.render(
-    <StrictMode>
+// 既存の全コンポーネントを表示するホームページ
+function HomePage() {
+  return (
+    <>
+      {/* ナビゲーションリンク */}
+      <nav style={{ padding: '10px', marginBottom: '20px', borderBottom: '1px solid #ccc' }}>
+        <Link to="/memo" style={{ color: '#007bff', textDecoration: 'none', fontSize: '16px' }}>
+          → メモアプリへ
+        </Link>
+      </nav>
       <App counter={counter} onClick={doAction}/>
       <App_hook_state />
       <App_child />  {/* 子コンポーネントサンプル */}
       <App_bidirectionl />
       <App_form />  {/* フォーム入力サンプル */}
       <App_useEffect />  {/* useEffectサンプル */}
+      <App_useCounter />  {/* useCounterカスタムフックサンプル */}
+      <Calcmenu />  {/* 計算メニュー（useCalcカスタムフック使用） */}
+      <App_usePersist />  {/* UsePersist（LocalStorage永続化）サンプル */}
+    </>
+  )
+}
+
+// -----------------------------------------------------------------------------
+// レンダリング関数
+// -----------------------------------------------------------------------------
+// React Router を使用してルーティングを設定
+// - StrictMode: 開発時に潜在的な問題を検出するためのラッパー
+// - BrowserRouter: HTML5 History APIを使用したルーター
+// - Routes/Route: ルート定義
+function render(){
+  root.render(
+    <StrictMode>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/memo" element={<MainMemo />} />
+        </Routes>
+      </BrowserRouter>
     </StrictMode>,
   )
 }
