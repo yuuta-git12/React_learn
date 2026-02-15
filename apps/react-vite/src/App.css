@@ -226,3 +226,7 @@ table.memo {
 table.memo tr td {
   border-bottom: gray 1px solid;
 }
+
+.memo{
+  color: black !important;
+}
