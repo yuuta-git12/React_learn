@@ -26,6 +26,7 @@ function AlertMessage() {
     // State定義
     // -----------------------------------------------------------------------------
     // フォーム入力用のstate（一時的な入力値を保持）
+    // こちらのstateの型は宣言はしなくてもエラーにはならない
     const [name, setName] = useState<string>("");
     const [mail, setMail] = useState<string>("");
     const [age, setAge] = useState<number>(0);
