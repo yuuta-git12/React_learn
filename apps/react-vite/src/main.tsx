@@ -15,7 +15,9 @@ import App_useEffect from './App_useEffect'          // useEffectサンプル用
 import App_useCounter from './App_useCounter';  // useCounterカスタムフックサンプル用コンポーネント
 import Calcmenu from './components/Calcmenu'    // 計算メニューコンポーネント（useCalcカスタムフック使用）
 import App_usePersist from './App _usePersist'  // UsePersist（LocalStorage永続化）サンプル用コンポーネント
+import App_useMemo from './App_useMemo'
 import MainMemo from './main_memo'              // メモアプリページ
+import App_useCallback from './App_useCallback'
 
 // -----------------------------------------------------------------------------
 // ルート要素の取得と検証
@@ -73,6 +75,8 @@ function HomePage() {
       <App_useCounter />  {/* useCounterカスタムフックサンプル */}
       <Calcmenu />  {/* 計算メニュー（useCalcカスタムフック使用） */}
       <App_usePersist />  {/* UsePersist（LocalStorage永続化）サンプル */}
+      <App_useMemo />
+      <App_useCallback />
     </>
   )
 }
