@@ -10,6 +10,7 @@ type CounterProps = {
 
 /**
  * React.memoでラップしたカウンターコンポーネント
+ * メモ化したコンポーネント
  * React.memoの動作:
  *   - propsが前回と同じ場合、再レンダリングをスキップする（浅い比較）
  *   - ただし、propsに関数を渡す場合、毎回新しい関数が生成されると
@@ -17,6 +18,7 @@ type CounterProps = {
  *   - そのため、親コンポーネントでuseCallbackを使って関数をメモ化する必要がある
  */
 const Counter: React.FC<CounterProps> =
+    // count,name,incrementの値が変更されたら、アロー関数以降の処理が実行される
     React.memo(({ count, name, increment}) => {
         // 再レンダリングの発生を確認するためのログ出力
         console.log(`[${name}] count: ${count}`);

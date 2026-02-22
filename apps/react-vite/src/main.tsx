@@ -17,7 +17,8 @@ import Calcmenu from './components/Calcmenu'    // 計算メニューコンポ�
 import App_usePersist from './App _usePersist'  // UsePersist（LocalStorage永続化）サンプル用コンポーネント
 import App_useMemo from './App_useMemo'
 import MainMemo from './main_memo'              // メモアプリページ
-import App_useCallback from './App_useCallback'
+import App_useCallback from './App_useCallback'          // useCallbackサンプル用コンポーネント
+import App_memoComponent from './App_memoComponent'      // React.memoサンプル用コンポーネント
 
 // -----------------------------------------------------------------------------
 // ルート要素の取得と検証
@@ -76,7 +77,8 @@ function HomePage() {
       <Calcmenu />  {/* 計算メニュー（useCalcカスタムフック使用） */}
       <App_usePersist />  {/* UsePersist（LocalStorage永続化）サンプル */}
       <App_useMemo />
-      <App_useCallback />
+      <App_useCallback />  {/* useCallbackサンプル */}
+      <App_memoComponent />  {/* React.memoサンプル */}
     </>
   )
 }
