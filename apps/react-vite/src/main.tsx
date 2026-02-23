@@ -19,6 +19,7 @@ import App_useMemo from './App_useMemo'
 import MainMemo from './main_memo'              // メモアプリページ
 import App_useCallback from './App_useCallback'          // useCallbackサンプル用コンポーネント
 import App_memoComponent from './App_memoComponent'      // React.memoサンプル用コンポーネント
+import App_useReducer from './App_useReducer'    // useReducerサンプル用コンポーネント
 
 // -----------------------------------------------------------------------------
 // ルート要素の取得と検証
@@ -79,6 +80,7 @@ function HomePage() {
       <App_useMemo />
       <App_useCallback />  {/* useCallbackサンプル */}
       <App_memoComponent />  {/* React.memoサンプル */}
+      <App_useReducer />  {/* useReducerサンプル */}
     </>
   )
 }
